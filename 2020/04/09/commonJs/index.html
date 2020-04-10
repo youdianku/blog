@@ -15,10 +15,10 @@
 <meta property="og:description" content="CommonJs采用同步加载不同模块文件，适用于服务器端。因为模块文件都存放在服务器的各个硬盘上，读取加载时间快，适合服务器端，不适用浏览器（浏览器同步加载文件如果有一个没有加载出来后面就阻塞了）。 浏览器不兼容CommonJs，因为浏览器缺少module、exports、require、golbal四个环境变量。如要使用需要工具转换 CommonJs的核心思想就是通过require方法来同步加载">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-09T13:56:49.000Z">
-<meta property="article:modified_time" content="2020-04-09T14:35:07.372Z">
+<meta property="article:modified_time" content="2020-04-10T03:46:54.246Z">
 <meta property="article:author" content="SHENGWEI-CENG">
-<meta property="article:tag" content="notes">
 <meta property="article:tag" content="Js">
+<meta property="article:tag" content="模块化">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/blog/atom.xml" title="LIFE" type="application/atom+xml">
@@ -104,13 +104,22 @@
       <a data-url="http://yoursite.com/2020/04/09/commonJs/" data-id="ck8stxh1p00007ss777n4enkh" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Js/" rel="tag">Js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/notes/" rel="tag">notes</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Js/" rel="tag">Js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" rel="tag">模块化</a></li></ul>
 
     </footer>
   </div>
   
     
 <nav id="article-nav">
+  
+    <a href="/blog/2020/04/10/AMD/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          AMD
+        
+      </div>
+    </a>
   
   
     <a href="/blog/2020/04/09/git/" id="article-nav-older" class="article-nav-link-wrap">
@@ -134,7 +143,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Js/" rel="tag">Js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/notes/" rel="tag">notes</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Js/" rel="tag">Js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/notes/" rel="tag">notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" rel="tag">模块化</a></li></ul>
     </div>
   </div>
 
@@ -144,7 +153,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/Js/" style="font-size: 10px;">Js</a> <a href="/blog/tags/notes/" style="font-size: 20px;">notes</a>
+      <a href="/blog/tags/Js/" style="font-size: 10px;">Js</a> <a href="/blog/tags/notes/" style="font-size: 10px;">notes</a> <a href="/blog/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 10px;">模块化</a>
     </div>
   </div>
 
@@ -164,6 +173,14 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2020/04/10/CMD/">CMD</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2020/04/10/AMD/">AMD</a>
+          </li>
         
           <li>
             <a href="/blog/2020/04/09/commonJs/">CommonJs</a>
