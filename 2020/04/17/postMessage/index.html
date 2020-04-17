@@ -5,17 +5,17 @@
   
 
   
-  <title>postMessage | LIFE</title>
+  <title>postMessage跨域 | LIFE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="postMessage跨域解决iframe跨域 12345678910&lt;!-- localhost:8080&#x2F;index.html --&gt;&lt;!-- parent --&gt;&lt;iframe src&#x3D;&quot;http:&#x2F;&#x2F;localhost:8081&#x2F;index.html&quot; frameborder&#x3D;&quot;1&quot;&gt;&lt;&#x2F;iframe&gt;&lt;script&gt;var pa">
+  <meta name="description" content="解决iframe跨域 12345678910&lt;!-- localhost:8080&#x2F;index.html --&gt;&lt;!-- parent --&gt;&lt;iframe src&#x3D;&quot;http:&#x2F;&#x2F;localhost:8081&#x2F;index.html&quot; frameborder&#x3D;&quot;1&quot;&gt;&lt;&#x2F;iframe&gt;&lt;script&gt;var parent &#x3D; &#39;paren">
 <meta property="og:type" content="article">
-<meta property="og:title" content="postMessage">
+<meta property="og:title" content="postMessage跨域">
 <meta property="og:url" content="http://yoursite.com/2020/04/17/postMessage/index.html">
 <meta property="og:site_name" content="LIFE">
-<meta property="og:description" content="postMessage跨域解决iframe跨域 12345678910&lt;!-- localhost:8080&#x2F;index.html --&gt;&lt;!-- parent --&gt;&lt;iframe src&#x3D;&quot;http:&#x2F;&#x2F;localhost:8081&#x2F;index.html&quot; frameborder&#x3D;&quot;1&quot;&gt;&lt;&#x2F;iframe&gt;&lt;script&gt;var pa">
+<meta property="og:description" content="解决iframe跨域 12345678910&lt;!-- localhost:8080&#x2F;index.html --&gt;&lt;!-- parent --&gt;&lt;iframe src&#x3D;&quot;http:&#x2F;&#x2F;localhost:8081&#x2F;index.html&quot; frameborder&#x3D;&quot;1&quot;&gt;&lt;&#x2F;iframe&gt;&lt;script&gt;var parent &#x3D; &#39;paren">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-17T09:36:33.000Z">
-<meta property="article:modified_time" content="2020-04-17T10:00:30.868Z">
+<meta property="article:modified_time" content="2020-04-17T10:01:59.866Z">
 <meta property="article:author" content="SHENGWEI-CENG">
 <meta property="article:tag" content="html5">
 <meta name="twitter:card" content="summary">
@@ -85,7 +85,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      postMessage
+      postMessage跨域
     </h1>
   
 
@@ -93,7 +93,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="postMessage跨域"><a href="#postMessage跨域" class="headerlink" title="postMessage跨域"></a>postMessage跨域</h2><p>解决iframe跨域</p>
+        <p>解决iframe跨域</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- localhost:8080/index.html --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- parent --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"http://localhost:8081/index.html"</span> <span class="attr">frameborder</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">var</span> parent = <span class="string">'parent'</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> ifr = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'iframe'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript"><span class="built_in">window</span>.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(e.data)<span class="comment">//父页面跨域拿到子页面的数据</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- localhost:8081/index.html --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- son --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="comment">// &#123;&#125;传递数据 第二个参数是允许使用数据的源</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">window</span>.parent.postMessage(&#123;</span></span><br><span class="line"><span class="actionscript">    name: <span class="string">'son'</span></span></span><br><span class="line"><span class="actionscript">&#125;, <span class="string">'http://localhost/'</span>)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
@@ -164,7 +164,7 @@
       <ul>
         
           <li>
-            <a href="/blog/2020/04/17/postMessage/">postMessage</a>
+            <a href="/blog/2020/04/17/postMessage/">postMessage跨域</a>
           </li>
         
           <li>
