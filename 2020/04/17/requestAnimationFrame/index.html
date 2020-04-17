@@ -5,14 +5,19 @@
   
 
   
-  <title>Tag: html5 | LIFE</title>
+  <title>requestAnimationFrame | LIFE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LIFE">
-<meta property="og:url" content="http://yoursite.com/tags/html5/index.html">
+  <meta name="description" content="12345678910111213141516window.requestAnimationFrame &#x3D; (function()&amp;#123;    return window.requestAnimationFrame ||            window.webkitRequestAnimationFrame ||            window.mozRequestAnimation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="requestAnimationFrame">
+<meta property="og:url" content="http://yoursite.com/2020/04/17/requestAnimationFrame/index.html">
 <meta property="og:site_name" content="LIFE">
+<meta property="og:description" content="12345678910111213141516window.requestAnimationFrame &#x3D; (function()&amp;#123;    return window.requestAnimationFrame ||            window.webkitRequestAnimationFrame ||            window.mozRequestAnimation">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-17T07:20:39.000Z">
+<meta property="article:modified_time" content="2020-04-17T07:36:12.589Z">
 <meta property="article:author" content="SHENGWEI-CENG">
+<meta property="article:tag" content="html5">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/blog/atom.xml" title="LIFE" type="application/atom+xml">
@@ -66,154 +71,64 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2020/04/17/postMessage/" class="archive-article-date">
-  <time datetime="2020-04-17T09:36:33.000Z" itemprop="datePublished">Apr 17</time>
+        <section id="main"><article id="post-requestAnimationFrame" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2020/04/17/requestAnimationFrame/" class="article-date">
+  <time datetime="2020-04-17T07:20:39.000Z" itemprop="datePublished">2020-04-17</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/04/17/postMessage/">postMessage</a>
+    <h1 class="article-title" itemprop="name">
+      requestAnimationFrame
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2020/04/17/worker/" class="archive-article-date">
-  <time datetime="2020-04-17T09:11:32.000Z" itemprop="datePublished">Apr 17</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/04/17/worker/">worker</a>
-    </h1>
-  
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.requestAnimationFrame = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">window</span>.requestAnimationFrame ||</span><br><span class="line">            <span class="built_in">window</span>.webkitRequestAnimationFrame ||</span><br><span class="line">            <span class="built_in">window</span>.mozRequestAnimationFrame ||</span><br><span class="line">            <span class="function"><span class="keyword">function</span>(<span class="params">cb</span>)</span>&#123;</span><br><span class="line">                <span class="built_in">window</span>.setTimeout(cb, <span class="number">1000</span> / <span class="number">60</span>)</span><br><span class="line">            &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"><span class="built_in">window</span>.cancelAnimationFrame = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">window</span>.cancelAnimationFrame ||</span><br><span class="line">            <span class="built_in">window</span>.webkitCancelAnimationFrame ||</span><br><span class="line">            <span class="built_in">window</span>.mozCancelAnimationFrame ||</span><br><span class="line">            <span class="function"><span class="keyword">function</span>(<span class="params">id</span>)</span>&#123;</span><br><span class="line">                <span class="built_in">window</span>.clearTimeout(id)</span><br><span class="line">            &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/youdianku/html5-music.git" target="_blank" rel="noopener">音乐播放器进度条案例</a></p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2020/04/17/history/" class="archive-article-date">
-  <time datetime="2020-04-17T08:30:25.000Z" itemprop="datePublished">Apr 17</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/04/17/history/">history</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2020/04/17/storage/" class="archive-article-date">
-  <time datetime="2020-04-17T07:41:19.000Z" itemprop="datePublished">Apr 17</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/17/requestAnimationFrame/" data-id="ck940v7im0004kcs7964lgpuj" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/04/17/storage/">storage</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2020/04/17/requestAnimationFrame/" class="archive-article-date">
-  <time datetime="2020-04-17T07:20:39.000Z" itemprop="datePublished">Apr 17</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/04/17/requestAnimationFrame/">requestAnimationFrame</a>
-    </h1>
-  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/html5/" rel="tag">html5</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2020/04/15/geolocation/" class="archive-article-date">
-  <time datetime="2020-04-15T12:44:13.000Z" itemprop="datePublished">Apr 15</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/04/15/geolocation/">geolocation</a>
-    </h1>
+    <a href="/blog/2020/04/17/storage/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          storage
+        
+      </div>
+    </a>
   
+  
+    <a href="/blog/2020/04/15/geolocation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">geolocation</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2020/04/14/canvas/" class="archive-article-date">
-  <time datetime="2020-04-14T10:45:18.000Z" itemprop="datePublished">Apr 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2020/04/14/canvas/">canvas</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
 
 </section>
         

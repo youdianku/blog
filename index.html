@@ -68,6 +68,211 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-postMessage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2020/04/17/postMessage/" class="article-date">
+  <time datetime="2020-04-17T09:36:33.000Z" itemprop="datePublished">2020-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/04/17/postMessage/">postMessage</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="postMessage跨域"><a href="#postMessage跨域" class="headerlink" title="postMessage跨域"></a>postMessage跨域</h2><p>解决iframe跨域</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- localhost:8080/index.html --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- parent --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"http://localhost:8081/index.html"</span> <span class="attr">frameborder</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">var</span> parent = <span class="string">'parent'</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> ifr = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'iframe'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript"><span class="built_in">window</span>.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(e.data)<span class="comment">//父页面跨域拿到子页面的数据</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- localhost:8081/index.html --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- son --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="comment">// &#123;&#125;传递数据 第二个参数是允许使用数据的源</span></span></span><br><span class="line"><span class="javascript"><span class="built_in">window</span>.parent.postMessage(&#123;</span></span><br><span class="line"><span class="actionscript">    name: <span class="string">'son'</span></span></span><br><span class="line"><span class="actionscript">&#125;, <span class="string">'http://localhost/'</span>)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/17/postMessage/" data-id="ck940v7ik0001kcs7fjdf12d7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/html5/" rel="tag">html5</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-worker" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2020/04/17/worker/" class="article-date">
+  <time datetime="2020-04-17T09:11:32.000Z" itemprop="datePublished">2020-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/04/17/worker/">worker</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>worker一种异步执行js的方式<br>缺点：<br>受同源策略限制；<br>受到主线程DOM限制，没有document对象<br>通信只能通过postMessage，onmessage完成<br>没有window对象，不能使用上面的alert,confirm等方法，可以使用XMLHTTPRequest发出ajax请求<br>文件限制，不能读取本地文件，所加载的脚本必须来自网络</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.html</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1000000</span>;</span><br><span class="line"><span class="keyword">var</span> wk = <span class="keyword">new</span> Worder(<span class="string">'./index.js'</span>);</span><br><span class="line">a.postMessage(&#123;<span class="attr">num</span>: num&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'---'</span>); </span><br><span class="line">wk.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.data.count)</span><br><span class="line">    wk.terminate();<span class="comment">//在worker对象上结束worker</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">this</span>.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> count = <span class="number">0</span>, num = e.data.num;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; num; i++)&#123;</span><br><span class="line">        count += i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.postMessage(&#123;<span class="attr">count</span>: count&#125;)</span><br><span class="line">    <span class="keyword">this</span>.close() <span class="comment">//在作用域中结束worker</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/17/worker/" data-id="ck940v7iq0007kcs7c6er39za" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/html5/" rel="tag">html5</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-history" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2020/04/17/history/" class="article-date">
+  <time datetime="2020-04-17T08:30:25.000Z" itemprop="datePublished">2020-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/04/17/history/">history</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">history.back();</span><br><span class="line">history.forward();</span><br><span class="line">history.go(n);</span><br><span class="line"></span><br><span class="line"><span class="comment">// h5新增方法</span></span><br><span class="line"><span class="comment">// state:状态对象，popstate事件触发时，会传入回调函数中，不传可以写null或&#123;&#125;</span></span><br><span class="line"><span class="comment">// title: 页面标题 null</span></span><br><span class="line">history.pushState(state, title, url)</span><br><span class="line">history.replaceState(state, title, url)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新增事件</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'popstate'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;&#125;)<span class="comment">//历史记录发生改变时触发</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'hashchange'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;&#125;)<span class="comment">//页面刷新hash值改变时触发</span></span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/blog/2020/04/17/history/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/17/history/" data-id="ck940v7id0000kcs7dupp9fmi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/html5/" rel="tag">html5</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-storage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2020/04/17/storage/" class="article-date">
+  <time datetime="2020-04-17T07:41:19.000Z" itemprop="datePublished">2020-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/04/17/storage/">storage</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="localStorage-amp-sessionStorage"><a href="#localStorage-amp-sessionStorage" class="headerlink" title="localStorage&amp;sessionStorage"></a>localStorage&amp;sessionStorage</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(localStorage/sessionStorage).name = <span class="string">'张三'</span>;</span><br><span class="line">(localStorage/sessionStorage).arr = <span class="built_in">JSON</span>.stringify([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line">(localStorage/sessionStorage).obj = <span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">    name: <span class="string">'name'</span></span><br><span class="line">&#125;);</span><br><span class="line">(localStorage/sessionStorage).setItem(name, val);</span><br><span class="line">(localStorage/sessionStorage).getItem(name);</span><br><span class="line">(localStorage/sessionStorage).removeItem(name);</span><br><span class="line">(localStorage/sessionStorage).clear();</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/blog/2020/04/17/storage/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/17/storage/" data-id="ck940v7ip0006kcs79qfbewcy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/html5/" rel="tag">html5</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-requestAnimationFrame" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2020/04/17/requestAnimationFrame/" class="article-date">
+  <time datetime="2020-04-17T07:20:39.000Z" itemprop="datePublished">2020-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/04/17/requestAnimationFrame/">requestAnimationFrame</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.requestAnimationFrame = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">window</span>.requestAnimationFrame ||</span><br><span class="line">            <span class="built_in">window</span>.webkitRequestAnimationFrame ||</span><br><span class="line">            <span class="built_in">window</span>.mozRequestAnimationFrame ||</span><br><span class="line">            <span class="function"><span class="keyword">function</span>(<span class="params">cb</span>)</span>&#123;</span><br><span class="line">                <span class="built_in">window</span>.setTimeout(cb, <span class="number">1000</span> / <span class="number">60</span>)</span><br><span class="line">            &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"><span class="built_in">window</span>.cancelAnimationFrame = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">window</span>.cancelAnimationFrame ||</span><br><span class="line">            <span class="built_in">window</span>.webkitCancelAnimationFrame ||</span><br><span class="line">            <span class="built_in">window</span>.mozCancelAnimationFrame ||</span><br><span class="line">            <span class="function"><span class="keyword">function</span>(<span class="params">id</span>)</span>&#123;</span><br><span class="line">                <span class="built_in">window</span>.clearTimeout(id)</span><br><span class="line">            &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/youdianku/html5-music.git" target="_blank" rel="noopener">音乐播放器进度条案例</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/17/requestAnimationFrame/" data-id="ck940v7im0004kcs7964lgpuj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/html5/" rel="tag">html5</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-geolocation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2020/04/15/geolocation/" class="article-date">
@@ -335,23 +540,23 @@
       <ul>
         
           <li>
-            <a href="/blog/2020/04/15/geolocation/">geolocation</a>
+            <a href="/blog/2020/04/17/postMessage/">postMessage</a>
           </li>
         
           <li>
-            <a href="/blog/2020/04/14/canvas/">canvas</a>
+            <a href="/blog/2020/04/17/worker/">worker</a>
           </li>
         
           <li>
-            <a href="/blog/2020/04/11/webpack/">webpack</a>
+            <a href="/blog/2020/04/17/history/">history</a>
           </li>
         
           <li>
-            <a href="/blog/2020/04/09/modular/">CommonJs&amp;AMD&amp;CMD</a>
+            <a href="/blog/2020/04/17/storage/">storage</a>
           </li>
         
           <li>
-            <a href="/blog/2020/04/09/git/">git</a>
+            <a href="/blog/2020/04/17/requestAnimationFrame/">requestAnimationFrame</a>
           </li>
         
       </ul>
