@@ -68,6 +68,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-es6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2020/04/18/es6/" class="article-date">
+  <time datetime="2020-04-18T05:54:06.000Z" itemprop="datePublished">2020-04-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2020/04/18/es6/">ES6</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="let-amp-const"><a href="#let-amp-const" class="headerlink" title="let&amp;const"></a>let&amp;const</h2><p>变量不能声明提升、不能重定义、不能挂在到window<br>与 {} 形成块级作用域；临时死区;<br>**区别：const声明常量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 加强对作用域的控制</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// error a is not defined</span></span><br><span class="line"><span class="comment">// 临时死区,只要区域内有定义，但是在声明前使用，不会往上一级作用域找</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a); <span class="comment">//error a is not defined</span></span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 闭包问题</span></span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/blog/2020/04/18/es6/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/18/es6/" data-id="ck98q0cwh000030s7cwm0cc4v" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-fileReader" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2020/04/17/fileReader/" class="article-date">
@@ -444,52 +488,6 @@
 
 
   
-    <article id="post-modular" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2020/04/09/modular/" class="article-date">
-  <time datetime="2020-04-09T13:56:49.000Z" itemprop="datePublished">2020-04-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2020/04/09/modular/">CommonJs&amp;AMD&amp;CMD</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="CommonJs"><a href="#CommonJs" class="headerlink" title="CommonJs"></a>CommonJs</h2><p>CommonJs采用同步加载不同模块文件，适用于服务器端。因为模块文件都存放在服务器的各个硬盘上，读取加载时间快，适合服务器端，不适用浏览器（浏览器同步加载文件如果有一个没有加载出来后面就阻塞了）。</p>
-<p>浏览器不兼容CommonJs，因为浏览器缺少module、exports、require、global四个环境变量。如要使用需要工具(<a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>)编译转换。</p>
-<p>CommonJs的核心思想就是通过require方法来同步加载所要依赖的其他模块，然后通过exports或者module.exports来导出需要暴露的接口。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 暴露接口方式</span></span><br><span class="line"><span class="comment">// module1.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    bar: <span class="string">'m1'</span>,</span><br><span class="line">    foo: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.bar</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// module2.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'m2'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// module3.js</span></span><br><span class="line">exports.foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'m3'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 引入模块</span></span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">var</span> m1 = <span class="built_in">require</span>(<span class="string">'./module1'</span>);</span><br><span class="line"><span class="keyword">var</span> m2 = <span class="built_in">require</span>(<span class="string">'./module2'</span>);</span><br><span class="line"><span class="keyword">var</span> m3 = <span class="built_in">require</span>(<span class="string">'./module3'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(m1.foo(), m2(), m3.foo()); <span class="comment">//m1 m2 m3</span></span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/blog/2020/04/09/modular/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/09/modular/" data-id="ck8x9vvq10002y8s73uefa5yy" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Js/" rel="tag">Js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" rel="tag">模块化</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -508,7 +506,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Js/" rel="tag">Js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html5/" rel="tag">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/notes/" rel="tag">notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" rel="tag">模块化</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Js/" rel="tag">Js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html5/" rel="tag">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/notes/" rel="tag">notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" rel="tag">模块化</a></li></ul>
     </div>
   </div>
 
@@ -518,7 +516,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/Js/" style="font-size: 10px;">Js</a> <a href="/blog/tags/html5/" style="font-size: 20px;">html5</a> <a href="/blog/tags/notes/" style="font-size: 10px;">notes</a> <a href="/blog/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/blog/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 10px;">模块化</a>
+      <a href="/blog/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/blog/tags/Js/" style="font-size: 10px;">Js</a> <a href="/blog/tags/html5/" style="font-size: 20px;">html5</a> <a href="/blog/tags/notes/" style="font-size: 10px;">notes</a> <a href="/blog/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/blog/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 10px;">模块化</a>
     </div>
   </div>
 
@@ -540,6 +538,10 @@
       <ul>
         
           <li>
+            <a href="/blog/2020/04/18/es6/">ES6</a>
+          </li>
+        
+          <li>
             <a href="/blog/2020/04/17/fileReader/">fileReader</a>
           </li>
         
@@ -553,10 +555,6 @@
         
           <li>
             <a href="/blog/2020/04/17/history/">history</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2020/04/17/storage/">storage</a>
           </li>
         
       </ul>
